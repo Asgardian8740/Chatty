@@ -1,4 +1,5 @@
 apply plugin: 'com.android.application'
+apply plugin: 'com.google.gms.google-services'
 
 android {
     compileSdkVersion 29
@@ -47,10 +48,19 @@ android {
         implementation 'com.android.support:multidex:1.0.3'
 
 
-
         implementation 'com.google.cloud:google-cloud-dialogflow:2.1.0'
         implementation 'io.grpc:grpc-okhttp:1.30.0'
         implementation 'androidx.recyclerview:recyclerview:1.1.0'
+        implementation 'com.googlecode.libphonenumber:libphonenumber:8.9.7'
+
 
     }
+}
+
+dependencies {
+    implementation 'androidx.appcompat:appcompat:+'
+    implementation 'androidx.constraintlayout:constraintlayout:+'
+    implementation 'com.google.firebase:firebase-auth:19.3.0'
+    implementation 'com.googlecode.libphonenumber:libphonenumber:8.9.7'
+
 }

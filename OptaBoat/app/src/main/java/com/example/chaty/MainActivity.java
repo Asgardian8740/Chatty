@@ -22,6 +22,7 @@ import com.google.cloud.dialogflow.v2.SessionName;
 import com.google.cloud.dialogflow.v2.SessionsClient;
 import com.google.cloud.dialogflow.v2.SessionsSettings;
 import com.google.cloud.dialogflow.v2.TextInput;
+import com.google.protobuf.UnknownFieldSet;
 
 import java.io.InputStream;
 import java.util.ArrayList;
@@ -100,7 +101,8 @@ public class MainActivity extends AppCompatActivity implements BotReply {
     private void sendMessageToBot(String message) {
 
         QueryInput input = QueryInput.newBuilder()
-                .setText(TextInput.newBuilder().setText(message).setLanguageCode("en-US")).build();
+                .setText(TextInput.newBuilder().setText(message).setLanguageCode("en-US")).setEvent("name","bal")
+                .build();
         Log.i("inp",input.toString());
         new SendMessageInBg(this, sessionName, sessionsClient, input).execute();
     }

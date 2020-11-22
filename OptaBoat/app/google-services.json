@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "951711506274",
+    "firebase_url": "https://chaty-bf2fc.firebaseio.com",
+    "project_id": "chaty-bf2fc",
+    "storage_bucket": "chaty-bf2fc.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:951711506274:android:9e6d02326bf4842ed6963b",
+        "android_client_info": {
+          "package_name": "com.example.chaty"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "951711506274-pjcho7dn4amnpe142737jg462hkmaui8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAK8Rba0sLkbroLL2XUzycgQJlYCImGfpQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "951711506274-pjcho7dn4amnpe142737jg462hkmaui8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
