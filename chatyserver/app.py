@@ -1,13 +1,10 @@
 from flask import Flask, request , make_response
 import json
+from user import *
+from doctor import *
 
 app = Flask(__name__)
 
-dummy_data = {
-    "weight" : 70,
-    "height" : 164,
-    "BMI" : 30
-}
 
 @app.route('/')
 def hello_world():
@@ -27,19 +24,55 @@ def webhook():
 
 
 def processRequest(req):
+    print(req.keys())
+    if(req.get("queryResult").get("intent").get("displayName") == "logIn"):
+        return loginintent()
+
+    if (req.get("queryResult").get("intent").get("displayName") == "Recent_lab_report"):
+        return labreportintent()
+
+    if (req.get("queryResult").get("intent").get("displayName") == "nearest_doctor"):
+        return doctor_intent()
+
+    if (req.get("queryResult").get("intent").get("displayName") == "prescriptions"):
+        return presc_intent()
+
+    if (req.get("queryResult").get("intent").get("displayName") == "med_store"):
+        return medstore_intent()
+
+    if (req.get("queryResult").get("intent").get("displayName") == "Pat_health_stat"):
+        return pathealth_intent()
+
+    if (req.get("queryResult").get("intent").get("displayName") == "Pat_medication"):
+        return patmed_intent()
+
+    if (req.get("queryResult").get("intent").get("displayName") == "Pat_med_date"):
+        return patmeddate_intent()
+
+    if (req.get("queryResult").get("intent").get("displayName") == "Pat_imun"):
+        return patimun_intent()
+
+    if (req.get("queryResult").get("intent").get("displayName") == "pat_Imun_date"):
+        return patimundate_intent()
+
+    if (req.get("queryResult").get("intent").get("displayName") == "pat_lab_code"):
+        return patlabcode_intent()
+
+    if (req.get("queryResult").get("intent").get("displayName") == "pat_stat_nut"):
+        return patstatnut_intent()
+
+
+
+
 
     #get all the query parameter
     query_res = req["queryResult"]
     print(query_res)
-    text = query_res.get('queryText' , None)
-    parameters = query_res.get('parameters' , None)
-    res = get_data()
-    return res
+    return get_data("Please return user Id")
 
-def get_data():
+def get_data(data):
+    return {"fulfillmentText": data}
 
-    name = "shakya"
-    return {"fulfillmentText": name,}
 
 if __name__ == '__main__':
     app.run(debug=True)
